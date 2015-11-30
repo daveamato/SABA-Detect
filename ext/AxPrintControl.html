@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<body onload="tryCtrl()">
+    <object id="CrystalPrintCtrl" name="CrystalPrintCtrl"
+        classid="clsid:88DD90B6-C770-4CFF-B7A4-3AFD16BB8824"  
+        codebase="https://subway.sabanow.net/sabareportxi/crystalreportviewers12/ActiveXControls/PrintControl.cab">
+    </object>
+
+    <script>
+        function tryCtrl()
+        {
+            try
+            {
+                p = new ActiveXObject('crystalreports12.crystalprintcontrol.1');
+            } catch(e)
+            {
+                setTimeout(function()
+                {
+                    tryCtrl();
+                }, 2000);
+            }
+            if(p)
+            {
+                return;
+            }
+        }
+       
+    </script>
+</body>
+</html>

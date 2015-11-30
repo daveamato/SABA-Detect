@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Saba Popup Test</title>
+    <script type="text/javascript">
+        function setParentOK()
+        {
+            if(window.opener && !window.opener.closed)
+            {
+                window.opener.SetPopupOK();
+            }
+            window.setTimeout("window.close()", 1000);
+        }
+        function autoClose()
+        {
+            window.setTimeout("window.close()", 4000);
+        }
+        function setPopupOK()
+        {
+            setParentOK();
+        }
+        popd2 = window.open("popTest2.html", "pop2", "height=100,width=100,fullscreen=no,channelmode=no,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no");
+        popd2.window.blur();
+	  </script>
+      <style>
+        html, body{
+            width: auto;
+            margin: 0;
+            padding: 5px;
+        }
+        #popWin1 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body onload="javascript:autoClose()">
+    <div id="popWin1">
+        <h3>Popup Test</h3>
+        <p>This window will auto-close</p>
+        <p>Please wait...</p>
+    </div>
+</body>
+</html>

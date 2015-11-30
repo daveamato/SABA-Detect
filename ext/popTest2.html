@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saba Popup Test</title>
+    <script type="text/javascript">
+        if (window.opener && !window.opener.closed && (document.documentElement.clientWidth > 10)) {
+            window.opener.setPopupOK();
+        }
+        window.setTimeout(function () {
+            window.close();
+        }, 1000);
+	 </script>
+</head>
+<body onload="javascript:setParentOK()">
+    <div id="popWin2">
+        <p>Popup Test 2</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+C:\Users\amato_da\Documents\Visual Studio 2012\Projects\Detection2012\Detection2012\bin\Detection2012.dll
+C:\Users\amato_da\Documents\Visual Studio 2012\Projects\Detection2012\Detection2012\bin\Detection2012.pdb
+C:\Users\amato_da\Documents\Visual Studio 2012\Projects\Detection2012\Detection2012\obj\Debug\Detection2012.dll
+C:\Users\amato_da\Documents\Visual Studio 2012\Projects\Detection2012\Detection2012\obj\Debug\Detection2012.pdb
+C:\Users\amato_da\Documents\Visual Studio 2012\Projects\Detection2012\Detection2012\obj\Debug\Detection2012.csprojResolveAssemblyReference.cache

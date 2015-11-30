@@ -1,0 +1,156 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Saba System Test</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/deployJava.js"></script>
+    <script src="js/libs/modernizr-respond.js"></script>
+
+     <script>
+        function SetPopupOK() {
+            document.getElementById("popupOk").value = "1"
+        }
+        var bFailure = false;
+        var bLimit = false;
+        var iPopupAttempts = 0;
+        var bTestComplete = false;
+    </script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>You are using an outdated browser. <a href="http://www.microsoft.com/ie">Upgrade Internet Explorer</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <div class="container">
+        <div class="hero-unit">
+         <div class="header">
+            <span>University of SUBWAY&reg; Detection Test</span>
+            <button class="btn btn-success" type="submit" id="startTest">Start Test</button>
+            <button class="btn btn-warning" type="reset" id="clearForm" style="display:none;">Clear</button>
+        </div>
+        <br />
+        <div class="progress progress-success" id="probar" style="width:400px;height:15px;display:none;">
+            <div class="bar" style="width: 0px;"></div>
+        </div>
+        <div class="proStatus" style="font-size:1em;font-style:italic;"></div>
+    </div>
+        <div id="testResults">
+            <table class="table table-condensed table-hover" style="width:auto;">
+                <tr>
+                    <th scope="row" class="row-os">
+                        <span class="tableHead">Operating System </span><span class="label label-important">Required</span><br />
+                        <span class="tableReq">Microsoft Windows XP SP2 or higher, Apple Mac OS X v10.5 or higher, Red Hat Linux v3 or higher.</span>
+                    </th>
+                    <td><div class="opsys"></div></td>
+                    <td><div class="ico" id="opsys-ico"></div></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-browser">
+                        <span class="tableHead">Browser </span><span class="label label-important">Required</span><br />
+                        <span class="tableReq">Internet Explorer v6.0 or higher, Google Chrome v10 or higher, Mozilla Firefox v3.0 or higher, or Apple Safari v3.0 or higher.</span>
+                    </th>
+                    <td><div class="browser"></div></td>
+                    <td><div class="ico" id="browser-ico"></div></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-flash">
+                        <span class="tableHead">Adobe Flash </span><span class="label label-important">Required</span><br />
+                        <span class="tableReq">Adobe Flash plugin v9.0 or higher to be installed.</span>
+
+                    </th>
+                    <td><div class="flashVersion"></div></td>
+                    <td><div class="ico" id="flashVersion-ico"></div></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-java">
+                        <span class="tableHead">Java (JRE) </span><span class="label label-important">Required</span><br />
+                        <span class="tableReq">Java (JRE) plugin v1.5 or higher to be installed.</span>
+                    </th>
+                    <td><div class="javaVersion"></div></td>
+                    <td><div class="ico" id="javaVersion-ico"></div></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-popupblock">
+                        <span class="tableHead">Popup Blocker </span><span class="label label-important">Required</span><br />
+                        <span class="tableReq">Blocker must be disabled, or configured to allow popups for: <i>http://subway.sabanow.net</i>.</span>
+                    </th>
+                    <td><div class="popupBlocker"></div></td>
+                    <td><div class="ico" id="popupBlocker-ico"></div></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="row-crax">
+                        <span class="tableHead">CrystalReports </span><span class="label label-info">Recommended</span><br />
+                        <span class="tableReq">ActiveX and Java to be installed.</span>
+                    </th>
+                    <td><div class="crAx"></div></td>
+                    <td><div class="ico" id="crAx-ico"></div></td>
+                </tr>
+            </table>
+        </div>
+      
+        <input type="hidden" id="popupOk" value="0"></input>
+        <div id="PUBload" style="display:none;"></div>
+        <div id="crAxload" style="display:none;"></div>
+        <div class="modal hide fade" id="disablePops" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Popup Blocker Configuration </h3>
+                <div id="browsernamePUB"></div>
+            </div>
+            <div class="modal-body">
+                <p>Please use the <b>Official Documentation</b>, on the bottom-left, to visit your browser's support page.</p>
+                <p>You may need to search for instructions on allowing popups for a specific website.  Once you have made the necessary changes, try running the test again.</p><br />
+                <p><i>Some browsers require timed consistancy in which users must preform the action when prompted.</i></p>
+                <div id="disablePUB"></div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" id="offPUBdoc" target="_blank">Official Documentation</a>
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+        <div class="modal hide fade" id="installCrAxModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="H1">CrystalReport PrintControl</h3>
+            </div>
+            <div class="modal-body">
+                <p><strong>Installing the Add-On</strong></p>
+                <ul>
+                    <li>Press the <strong>Install</strong> button on the bottom-right of this screen</li>
+                    <li>Wait for the installation file to download to your system.</li>
+                    <li>Your browser will then prompt you to authorize the installation, press <strong>Install</strong> on that dialog window.</li>
+                    <li>Once complete, press 'Close' on the bottom-left, and re-run the test.</li>
+                </ul>
+                <i>During the install, it may prompt for your account's password.  This is to authenticate yourself as an administrator.</i>
+            </div>
+            <div class="modal-footer">
+                <button style="float:left;" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <a class="btn btn-primary" id="startCrAxInstall" style="float: right;">Install</a>
+                
+            </div>
+        </div>
+
+    </div> <!-- /container -->
+    <footer>
+        <p class="main-footer">
+            <a href="http://partners.subway.com/">Back to <strong>SUBWAY® Partners</strong></a>
+        </p>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.0.min.js"><\/script>')</script>
+    <script src="js/libs/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pluginDetect.js"></script>
+</body>
+</html>

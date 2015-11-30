@@ -1,0 +1,93 @@
+/* ===== Primary Styles ========================================================
+   Author:  David Amato
+   ========================================================================== */
+
+/* Element Styles */
+body 
+{
+	padding-bottom: 15px;
+    padding-top: 5px;
+}
+footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 5px;
+    width: auto;
+    text-align: left;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+table th[scope=row] {
+    width:220px;
+}
+table th span.tableHead {
+    text-shadow: 1px 1px 1px #F1F1F1;
+    font-weight:bold;
+}
+table th span.tableReq{
+    font-weight:normal;
+    font-size: 90%;
+    word-wrap:break-word;
+}
+table th span.label {
+    cursor:default;
+}
+
+/* ID & Class Styles */
+.main-footer>a, .main-footer>a:active, .main-footer>a:visited {
+    color: #329832;
+}
+.main-footer>a:hover {
+    color: #454545;
+}
+.header
+{
+    font-size:150%;
+    color:#454545;
+}
+.modal-footer>a 
+{
+    float:left;
+}
+.error 
+{
+    color:red;
+    font-weight:bold;
+}
+
+.hero-unit {
+    padding: 15px;
+    margin: 0 auto;
+    background-color: transparent;
+    width: auto;
+}
+.container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.modal {
+    text-align: left;
+}
+
+#testResults {
+    width:auto;
+    display:none;
+}
+#startTest:disabled
+{
+    cursor:default;
+}
+#probar {
+    width:auto;
+    margin-left:  auto;
+    margin-right: auto;
+}

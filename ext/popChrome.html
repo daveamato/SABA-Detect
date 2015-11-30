@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Saba Detect: Popup Test</title>
+    <style>
+        html, body{
+            width: auto;
+            margin: 0;
+            padding: 5px;
+        }
+        #interDiv {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="interDiv">
+    <h2>Testing Popup Blocker</h2>
+    <p>Please Wait...</p>
+    </div>
+
+    <script>
+        var pop = window.open("about:blank", "new_window_123", "height=150,width=150,screenX=100");
+        pop.window.blur();
+
+        // Detect pop blocker
+        setTimeout(function()
+        {
+            var h = pop.document.documentElement.clientHeight;
+            var w = pop.document.documentElement.clientWidth;
+            if((h === 150) && (w === 150))
+            {
+                pop && pop.close();
+                popupBlockerOn(false);
+            } else
+            {
+                pop && pop.close();
+                popupBlockerOn(true);
+            }
+        }, 1000);
+
+        function popupBlockerOn(a)
+        {
+            if(a == true)
+            {
+                $('.popupBlocker').html("<a class='btn btn-danger' data-toggle='modal' data-target='#disablePops'><i class='icon-info-sign icon-white'></i> Blocker Detected</a>");
+                $('#popupBlocker-ico').html(addIcon(1));
+                $('#probar>.bar').css('width', '360px');
+            } else if(a == false)
+            {
+                $('.popupBlocker').html("No Blocker Detected");
+                $('#popupBlocker-ico').html(addIcon(0));
+                $('#probar>.bar').css('width', '360px');
+            } else
+            {
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
